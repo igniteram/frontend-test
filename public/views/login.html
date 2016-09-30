@@ -1,12 +1,15 @@
-  <div class="container" ng-controller="loginController">
+<div class="container" ng-controller="loginController">
+  <div class="col-sm-8 col-sm-offset-2 text">
+    <h2 align="center"> Welcome to United States Search App!</h2>
+    </div>
+    <form class="form-signin">
+      <h3 class="form-signin-heading">Please login in!</h3>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" ng-model="username" id="username" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" ng-model="password" id="password" class="form-control" placeholder="Password" required>
+      <button class="btn btn-lg btn-primary btn-block" ng-click="login()" type="submit">Login in</button>
+    </form>
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please login in!</h2>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login in</button>
-      </form>
-
-    </div> <!-- /container -->
+  </div>
+  <!-- /container -->

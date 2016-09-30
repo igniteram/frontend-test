@@ -1,4 +1,41 @@
-<div class="wrapper" ng-controller="stateController" ng-submit="search()">
-    <input type="text" class="form-control wrapper"  placeholder="Search">
-    <button type="submit" class="btn btn-primary">Search</button>
+<div class="wrapper" ng-controller="stateController">
+    <!--<input type="text" class="form-control wrapper" ng-bind="searchData" placeholder="Search your State">-->
+    <div class="row col-md-6 col-md-offset-3">
+        <h4>Choose the State abbreviation for specific info.</h4>
+        <select id="singleSelect" name="singleSelect" class="form-control col-sm-6" ng-model="searchAbbreviation">
+      <option ng-repeat="abbr in searchAbbreviation" value="{{state.abbreviation}}">{{abbr.searchAbbreviation}}</option>  <!-- interpolation -->
+    </select>
+    <button type="submit" class="btn btn-primary" ng-click="search()" style="margin-top:20px; margin-bottom:20px; ">Search</button>
+    </div>
+    <!--<div ng-bind ="searchAbbreviation">
+    {{searchAbbreviation}}
+    </div>-->
+    <table class="wrapper table table-responsive table-bordered" >
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Abbreviation</th>
+                <th>Capital</th>
+                <th>Most-Populous-City</th>
+                <th>Population</th>
+                <th>Square-Miles</th>
+                <th>Time-Zone-1</th>
+                <th>Time-Zone-2</th>
+                <th>Dst</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in searchData">
+                <td>{{x.name}}</td>
+                <td>{{x.abbreviation}}</td>
+                <td>{{x.capital}}</td>
+                <td>{{ x['most-populous-city'] }}</td>
+                <td>{{x.population}}</td>
+                <td>{{ x['square-miles'] }}</td>
+                <td>{{ x['time-zone-1'] }}</td>
+                <td>{{ x['time-zone-2'] }}</td>
+                <td>{{x.dst}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
