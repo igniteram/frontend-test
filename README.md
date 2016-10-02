@@ -1,22 +1,46 @@
+###Front-End-Test Application 
 
-# Frontend Developer Test
+This project demonstrates a search application with custom message feedback!
 
-Please fork this repository to begin your front end developer test, then download your repository and follow the installation instructions.
+###Features
+* Clear folder structures inside public folder.
+* Basic & user-friendly UI with Bootstrap templates used.
+* AngularJS framework used to build this single page application.
+* User Authentication in loginController with custom "invalid username or password" message.
+* E2E tests written with latest Protractor 4.0.9.
+* Page Object design pattern implementation
+* DirectConnect capability for Chrome & Firefox browsers(Currently Chrome is default).
+* Extensive hooks implemented using beforeAll,afterAll to practice DRY principle in testcases.
+* HTML test reports & screenshots in e2e/target folder.
 
-# Installation
-Installation requires node.js on your computer
+###To Get Started
 
-npm install
+####Pre-requisites
+1.NodeJS installed globally in the system.
+https://nodejs.org/en/download/
 
-node server.js
+2.Chrome browser installed.
 
-# Instructions
-There should now be a web server running at http://localhost:8888
-Follow the instructions displayed on that webpage.
+####Install dependencies
 
-The node server provides everything you need for the back end of the test. You are welcome to look at the server code, but you should not need to modify anything to make your front end work. All of your code should be placed in the public directory in this project. The node server will act as the web server for your front end application.
+> npm install
 
-Please insure that your code runs properly with the node server. Test all the features and make sure that no Javascript errors are generated.
+####Run Server
 
-Thank you
+> npm start
 
+####Run TestScripts
+
+ > npm test
+
+####Snapshot of login page
+
+![loginscreen](https://raw.githubusercontent.com/igniteram/frontend-test/master/public/app/images/login.png)
+
+####What could have been done better?
+* More fields could have been added in States page with abbreviations, sorting etc.
+* The UI design could be improved more.
+* E2E tests could be integrated with BDD frameworks like Cucumber.
+* Test reports features and UI could be improved.
+* [Protractor-Cucumber-Allure](https://github.com/igniteram/protractor-cucumber-allure) framework implemented by me could have been used.
+* Tests could be written in TypeScript, since protractor now supports it from v4.0.0.[Protractor-TypeScript-Cucumber](https://github.com/igniteram/protractor-cucumber-typescript)
