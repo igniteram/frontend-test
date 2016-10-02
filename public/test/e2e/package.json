@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "webdriver-manager update",
+    "test": "protractor ./config/protractor.conf.js"
+  },
+  "keywords": [],
+  "author": "ram.pasala7@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "protractor": "^4.0.9"
+  },
+  "dependencies": {
+    "protractor-jasmine2-screenshot-reporter": "^0.3.2"
+  }
+}
