@@ -1,4 +1,4 @@
-###Front-End-Test Application 
+###FrontEnd-Test Application 
 
 This project demonstrates a search application with custom message feedback!
 
@@ -22,20 +22,24 @@ https://nodejs.org/en/download/
 2.Chrome browser installed.
 
 ####Install dependencies
-
-> npm install
-
+```
+npm install
+```
 ####Run Server
-
-> npm start
-
+```
+npm start
+```
 ####Run TestScripts
-
- > npm test
-
+```
+npm test
+```
 ####Snapshot of login page
 
 ![loginscreen](https://raw.githubusercontent.com/igniteram/frontend-test/master/public/app/images/login.png)
+
+####Snapshot of states page
+
+![statespage](https://raw.githubusercontent.com/igniteram/frontend-test/master/public/app/images/state.gif)
 
 ####What could have been done better?
 * More fields could have been added in States page with abbreviations, sorting etc.
