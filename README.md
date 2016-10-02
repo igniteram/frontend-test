@@ -10,7 +10,7 @@ This project demonstrates a search application with custom message feedback!
 * E2E tests written with latest Protractor 4.0.9.
 * Page Object design pattern implementation
 * DirectConnect capability for Chrome & Firefox browsers(Currently Chrome is default).
-* Extensive hooks implemented using beforeAll,afterAll to practice DRY principle in testcases.
+* Extensive hooks implemented using beforeAll,afterAll to practice DRY principle in test cases.
 * HTML test reports & screenshots in e2e/target folder.
 
 ###To Get Started
@@ -21,6 +21,8 @@ https://nodejs.org/en/download/
 
 2.Chrome browser installed.
 
+3.Clone or Download this project and run the following commands inside the folder.
+
 ####Install dependencies
 ```
 npm install
@@ -29,7 +31,7 @@ npm install
 ```
 npm start
 ```
-####Run TestScripts
+####Run Test Scripts
 ```
 npm test
 ```
