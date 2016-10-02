@@ -4,7 +4,7 @@ var Login = require('../pages/login.js');
 var testdata = require('../testdata.json');
 var State = require('../pages/states.js');
 
-describe('To test ALABAMA state details', function () {
+describe('To test specific state details', function () {
     var comm = new Common();
     var login = new Login();
     var state = new State();
@@ -43,7 +43,6 @@ describe('To test ALABAMA state details', function () {
   ]);
     });
     it('should test the state selection and details', function () {
-        //comm.statesLink.click();
         var population = obj.population.toString();
         var sm = obj['square-miles'];
         var squareMiles = sm.toString();
