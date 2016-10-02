@@ -1,34 +1,42 @@
 <div class="page-header">
-  <h1>Guest book</h1>
-  <h4>We would love to hear from you! please leave your feedback below.</h4>
-</div>
-<div class="search">
-	<h3>Search Messages</h3>
-<form>
-  <i class="search search-focus"><input type="text" placeholder="Search"></i>
-</form>
+	<h1>Guest book</h1>
+	<h4>We would love to hear from you! please leave your feedback below.</h4>
 </div>
 <div class="well">
 	<h2>Leave a message</h2>
-	<div class="container">
+	<div class="container" ng-controller="guestBookController" ng-init="displayMsg()">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
- 				 	<label for="message">Message:</label>
-  					<textarea class="form-control" rows="5" id="message" ></textarea>
+					<label for="message">Message:</label>
+					<textarea ng-model="message" class="form-control" rows="5" id="message"></textarea>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-3">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Mobile number">
+					<input type="text" ng-model="phone" class="form-control" placeholder="Mobile number">
 				</div>
-				</div>
-				<div class="col-md-3">
-				<button type="button" class="btn btn-primary">Submit</button>
-				</div>
-			
+			</div>
+			<div class="col-md-3">
+				<button id="submitMessage" type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
+			</div>
 		</div>
+		<table id="messageTable" class="wrapper table table-responsive table-bordered">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Phone</th>
+					<th>Message</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in msgDetails" ng-class="{active : msgDetails}">
+					<td>{{x.user}}</td>
+					<td>{{x.phone}}</td>
+					<td>{{x.message}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-		

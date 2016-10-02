@@ -70,4 +70,43 @@ body {
 }
 h2 {
   margin-bottom: 50px;
+  color: black;
+}
+h3 {
+   color: black;
+}
+h4 {
+  width:383 px;
+}
+.error {
+  color: red;
+}
+.table {
+  width: 1072px;
+}
+th {
+  text-align: center;
+  background-color: steelblue;
+  color: white;
+}
+img {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.loginBackground {
+  background-image: url('../images/United-States-Flag.jpg');
+  background-size: cover;
+}
+.login {
+  margin-top:100px;
+}
+.border {
+  border-style: solid;
+  border-color: black;
+}
+.home {
+  margin-top: 35px;
+}
+.navColor {
+  background-color: lightsteelblue;
 }

@@ -1,16 +1,11 @@
-<div class="wrapper" ng-controller="stateController">
-    <!--<input type="text" class="form-control wrapper" ng-bind="searchData" placeholder="Search your State">-->
+<div class="wrapper" ng-controller="stateController" ng-init="searchState()">
     <div class="row col-md-6 col-md-offset-3">
-        <h4>Choose the State abbreviation for specific info.</h4>
-        <select id="singleSelect" name="singleSelect" class="form-control col-sm-6" ng-model="searchAbbreviation">
-      <option ng-repeat="abbr in searchAbbreviation" value="{{state.abbreviation}}">{{abbr.searchAbbreviation}}</option>  <!-- interpolation -->
-    </select>
-    <button type="submit" class="btn btn-primary" ng-click="search()" style="margin-top:20px; margin-bottom:20px; ">Search</button>
+        <h4>Choose your State Name for more information</h4>
+        <select class="form-control col-sm-6" ng-model="state" ng-options="state.name for state in searchData" style="margin-top:20px; margin-bottom:60px; ">
+        <option value="" disabled selected>Select your State</option>  
+        </select>
     </div>
-    <!--<div ng-bind ="searchAbbreviation">
-    {{searchAbbreviation}}
-    </div>-->
-    <table class="wrapper table table-responsive table-bordered" >
+    <table class="wrapper table table-responsive table-bordered">
         <thead>
             <tr>
                 <th>State</th>
@@ -25,16 +20,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in searchData">
-                <td>{{x.name}}</td>
-                <td>{{x.abbreviation}}</td>
-                <td>{{x.capital}}</td>
-                <td>{{ x['most-populous-city'] }}</td>
-                <td>{{x.population}}</td>
-                <td>{{ x['square-miles'] }}</td>
-                <td>{{ x['time-zone-1'] }}</td>
-                <td>{{ x['time-zone-2'] }}</td>
-                <td>{{x.dst}}</td>
+            <tr ng-show="state.name" ng-class="{active : state.name}">
+                <td>{{state.name}}</td>
+                <td>{{state.abbreviation}}</td>
+                <td>{{state.capital}}</td>
+                <td>{{ state['most-populous-city'] }}</td>
+                <td>{{state.population}}</td>
+                <td>{{ state['square-miles'] }}</td>
+                <td>{{ state['time-zone-1'] }}</td>
+                <td>{{ state['time-zone-2'] }}</td>
+                <td>{{state.dst}}</td>
             </tr>
         </tbody>
     </table>

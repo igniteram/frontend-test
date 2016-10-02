@@ -1,4 +1,3 @@
-"use strict"
 var app = angular.module('mainApp',['ngRoute']);
 
 app.config(function ($routeProvider){
@@ -15,13 +14,21 @@ app.config(function ($routeProvider){
         controller:"stateController"
     })
     .when ('/guestbook', {
-        templateUrl:"/views/guestBook.html" 
+        templateUrl:"/views/guestBook.html",
+        controller:"guestBookController" 
     })
     .otherwise({
         redirectTo:'/'
     })
 });
 
+// Main Controller
+app.controller('mainController',function ($scope) {
+       $scope.activeMenu = 'Home';
+
+});
+
+//Login Controller
 app.controller('loginController',function ($scope,$location,$http,$rootScope) {
   $rootScope.logIn = false ;
     $scope.login = function() {
@@ -38,46 +45,65 @@ app.controller('loginController',function ($scope,$location,$http,$rootScope) {
                             $scope.loginerror = "success!";
                             $rootScope.logIn = true;
                             window.location.href = "/#home";
-                        } else {
-                            $scope.loginerror = "Incorrect username or password!";
-                        }
+                        } 
                     }).error(function(data) {
-                        $scope.loginerror = "Error in server!";
+                        $scope.loginerror = "Incorrect username or password!";
                     });
-                }
-
-          
-  
+                }      
 });
-app.controller('stateController',function ($scope,$http) {
 
-$scope.search = function() {
-   // var searchState = $scope.searchState;
-   // var states = [];
+// State Controller
+app.controller('stateController',function ($scope,$http) {
+    
+$scope.searchState = function () {
+    $scope.searchData = {};
+    $scope.searchAbbreviation =[];
     $http({
         url: '/states',
         method: 'GET',
     }).success(function (data) {
-        console.log(data);
-        $scope.searchData = data;
+        //console.log(data);
+        return $scope.searchData = data;
 
     }).error(function(data) {
         $scope.loginerror = "Error in server!";
     });
-}
+}     
+});
 
-$scope.abbreviations = function () {
+//GuestBook Controller
+app.controller('guestBookController', function($scope,$http) {
+            $scope.msgDetails = {};
+            $scope.submit = function () {
+                var params = {
+                    "message" : $scope.message,
+                    "phone": $scope.phone
+            };
 
- $http({
-        url: '/states/abbreviations',
-        method: 'GET',
+$http({
+        url:'/write',
+        method: 'POST',
+        data: params
     }).success(function (data) {
-        console.log(data);
-        $scope.searchAbbreviation = data;
+        //console.log(data);
+    $scope.message = null;
+    $scope.phone = null;
 
-    }).error(function(data) {
-        $scope.loginerror = "Error in server!";
+    }).error(function (data) {
+        $scope.writeError = "Error encountered while submiting message";
     });
+    $scope.displayMsg();
 }
+$scope.displayMsg = function () {
 
+$http({
+    url:'/read',
+    method:'GET'
+}).success(function (data) {
+   // console.log(data);
+    $scope.msgDetails = data;
+}).error(function (data) {
+    $scope.readError ='Error fetching data!';
+}); 
+}
 });
