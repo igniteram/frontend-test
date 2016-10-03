@@ -31,6 +31,10 @@ npm install
 ```
 npm start
 ```
+####Application URL:
+```
+http://localhost:8888
+```
 ####Run Test Scripts
 ```
 npm test
